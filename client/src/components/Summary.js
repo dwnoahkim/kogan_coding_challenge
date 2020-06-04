@@ -6,7 +6,7 @@ class Summary extends Component {
     return (
       <div className="container">
         <h4>
-          Average Cubic Weight : {roundTo(this.props.avgCubicWeight/1000, 2)} kg
+          {this.props.category} Average Cubic Weight : {roundTo(this.props.avgCubicWeight/1000, 2)} kg
         </h4>
       </div>
     );

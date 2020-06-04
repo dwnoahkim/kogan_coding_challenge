@@ -6,8 +6,13 @@ import List from './List';
 import Summary from './Summary';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { category : 'Air Conditioners' }
+  }
+
   componentDidMount() {
-    this.props.fetchItemsByCategory('Air Conditioners');
+    this.props.fetchItemsByCategory(this.state.category);
   }
 
   render() {
@@ -15,7 +20,10 @@ class App extends Component {
       <div>
         {this.props.errorMessage}
         <List list={this.props.list} />
-        <Summary avgCubicWeight={this.props.avgCubicWeight} />
+        <Summary
+          category={this.state.category}
+          avgCubicWeight={this.props.avgCubicWeight}
+        />
       </div>
     );
   }
