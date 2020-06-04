@@ -13,8 +13,9 @@ class App extends Component {
   render() {
     return (
       <div>
+        {this.props.errorMessage}
         <List list={this.props.list} />
-        <Summary />
+        <Summary avgCubicWeight={this.props.avgCubicWeight} />
       </div>
     );
   }
@@ -23,6 +24,7 @@ class App extends Component {
 function mapStateToProps(state) {
   return {
     list: state.item.items,
+    avgCubicWeight: state.item.avgCubicWeight,
     errorMessage: state.item.errorMessage
   }
 }

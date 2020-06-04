@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
+import roundTo from '../utils/roundTo';
 
 class List extends Component {
-  roundTo(num, decimal) {
-    const calcDecimal = Math.pow(10, decimal);
-    return Math.round(num * calcDecimal) / calcDecimal;
-  };
-
   renderList() {
     return this.props.list.map(item => {
       return (
@@ -15,8 +11,8 @@ class List extends Component {
           <td>{item.size.width.toFixed(1)}</td>
           <td>{item.size.length.toFixed(1)}</td>
           <td>{item.size.height.toFixed(1)}</td>
-          <td>{this.roundTo(item.weight/1000, 2)}</td>
-          <td>{this.roundTo(item.cubicWeight/1000, 2)}</td>
+          <td>{roundTo(item.weight/1000, 2)}</td>
+          <td>{roundTo(item.cubicWeight/1000, 2)}</td>
         </tr>
       );
     });
@@ -26,7 +22,7 @@ class List extends Component {
     if (Object.entries(this.props.list).length === 0) {
       return ( <div></div> );
     }
-
+    
     return (
       <div className="container">
         <table className="u-full-width">

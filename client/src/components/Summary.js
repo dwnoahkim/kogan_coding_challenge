@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import roundTo from '../utils/roundTo';
 
 class Summary extends Component {
   render() {
     return (
-      <div>
-        Summary
+      <div className="container">
+        <h4>
+          Average Cubic Weight : {roundTo(this.props.avgCubicWeight/1000, 2)} kg
+        </h4>
       </div>
     );
   }

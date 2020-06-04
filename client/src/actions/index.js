@@ -9,7 +9,8 @@ export const fetchItemsByCategory = (category) => async dispatch => {
     );
 
     let { objects } = response.data;
-    // Calculate objects' cubic weight
+    // Calculate objects' cubic weight and average cubic weight
+    let totalCubicWeight = 0;
     objects.map(obj => {
       const conversionFactor = 250;
       let { width, length, height } = obj.size;
@@ -25,13 +26,19 @@ export const fetchItemsByCategory = (category) => async dispatch => {
       
       // Unit conversion : kg to g to match with weight
       cubicWeight = Math.round(cubicWeight * 1000);
+      totalCubicWeight += cubicWeight;
 
       obj.cubicWeight = cubicWeight;
     });
 
+    const avgCubicWeight = totalCubicWeight/objects.length;
+
     dispatch({
       type: FETCH_ITEMS_BY_CATEGORY, 
-      payload : objects
+      payload : {
+        objects,
+        avgCubicWeight
+      }
     });
   } catch (e) {
     dispatch({
