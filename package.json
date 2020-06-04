@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "Dongwoo's Kogan.com Coding Challenge",
   "main": "index.js",
+  "engines": {
+    "node" : "12.x",
+    "npm" : "6.x"
+  },
   "scripts": {
+    "start": "node index.js",
     "dev": "nodemon index.js"
   },
   "author": "Dongwoo Kim",
