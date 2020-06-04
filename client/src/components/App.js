@@ -7,7 +7,7 @@ import Summary from './Summary';
 
 class App extends Component {
   componentDidMount() {
-    this.props.fetchItemsByCategory();
+    this.props.fetchItemsByCategory('Air Conditioners');
   }
 
   render() {

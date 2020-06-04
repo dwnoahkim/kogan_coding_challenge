@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://wp8m3he1wt.s3-website-ap-southeast-2.amazonaws.com",
+  "proxy": "http://localhost:3090",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",

@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 
 class List extends Component {
   render() {
-    return (
-      <div>
-        {this.props.list}
-        List
-      </div>
-    );
+    if (Object.entries(this.props.list).length === 0) {
+      return ( <div></div> );
+    }
+
+    return this.props.list.map(item => {
+      return (
+        <div key={item.title}>
+          {item.title}
+        </div>
+      );
+    });
   }
 }
 
